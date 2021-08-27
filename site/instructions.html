@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<!-- 	<script type="module">
+		import name from './index.html';
+	</script> -->
+	<script defer src="js/instructions.js"></script>
+
+	<title>口·舌の動きの撮影</title>
+	<style>
+		#page-wrap {
+		     max-width: 800px;
+		     margin: 0 auto;
+		}
+		.container {
+        display: flex;
+        align-items: center;
+      }
+	</style>
+</head>
+<body>
+	<div id="page-wrap">
+	<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+	<script>
+	 var firebaseConfig = {
+	    apiKey: "AIzaSyCWiPUe-0xaDRUI1oT4jPi3ZWqyvd4k8t8",
+	    authDomain: "oral-capabilities.firebaseapp.com",
+	    projectId: "oral-capabilities",
+	    storageBucket: "oral-capabilities.appspot.com",
+	    messagingSenderId: "130456476055",
+	    appId: "1:130456476055:web:5221e827cf63ce9644ccd2"
+  		};		
+
+  		firebase.initializeApp(firebaseConfig);
+	</script>
+<h3>番号:</h3>
+<p id = "id_indicator"></p>
+<p><b>以下の動画の口，及び舌の動きを真似してください．その様子を<span style="color:red">スマートフォン</span>で撮影してください．</b></p>
+<ul>
+	<li>顔全体を写す必要はありませんが，以下の動画のように，鼻から下の範囲，口と舌の全体が写るようにしてください．</li>
+	<li>できない舌の動きがあっても構いません．できる範囲で舌を動かしてみてください．</li>
+	<li>撮影が終了したら，動画をダウンロードしてください．</li>
+</ul>
+<!-- <div class ="container"> -->
+	<div class="text">
+	<ul>
+	<li><b>動画のまとめ</b></li>
+	</ul>
+	<ol>
+	<li>できるだけ舌を右に突き出す (3秒ほど)</li>
+	<li>できるだけ舌を左に突き出す (3秒ほど)</li>
+	<li>できるだけ前へ舌を突き出す (3秒ほど)</li>
+	<li>口をすぼめる (3秒ほど)</li>
+	<li>頬を膨らませる (3秒ほど)</li>
+</ol>
+	</div>
+
+<video width="480" height="360" controls>
+  <source src="instructions_hospital_1.mp4" type="video/mp4">
+あなたのブラウザはビデオタグをサポートしていません．
+</video>
+<!-- <div> -->
+<p>***</p>
+<p><div>できるだけ舌を右に突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput0').click()">撮影する</button>
+<input type="file" capture="environment" accept="video/*" id="cameraInput0" style="display:none">
+<p>撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(1)" />
+
+
+<p>***</p>
+<!-- </div> -->
+
+
+<!-- <div class ="container"> -->
+<video width="480" height="360" controls>
+  <source src="instructions_hospital_2.mp4" type="video/mp4">
+あなたのブラウザはビデオタグをサポートしていません．
+</video>
+<!-- <div> -->
+<p>***</p>
+<p><div>できるだけ舌を左に突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput1').click()">撮影する</button>
+<input type="file" capture="environment" accept="video/*" id="cameraInput1" name="cameraInput1" style="display:none">
+<p>撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" value="ダウンロード" style="display:block;width:120px; height:30px;" onclick="initImageUpload(2)" />
+
+
+<p>***</p>
+<!-- </div>
+ -->
+
+<!-- <div class ="container"> -->
+<video width="480" height="360" controls>
+  <source src="instructions_hospital_3.mp4" type="video/mp4">
+あなたのブラウザはビデオタグをサポートしていません．
+</video>
+<!-- <div> -->
+<p>***</p>
+<p><div>できるだけ前へ舌を突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput2').click()">撮影する</button>
+<input type="file" capture="environment" accept="video/*" id="cameraInput2" name="cameraInput2" style="display:none">
+<p>撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" value="ダウンロード" style="display:block;width:120px; height:30px;" onclick="initImageUpload(3)" />
+
+
+<p>***</p>
+<!-- </div> -->
+
+
+<!-- <div class ="container"> -->
+<video width="480" height="360" controls>
+  <source src="instructions_hospital_4.mp4" type="video/mp4">
+あなたのブラウザはビデオタグをサポートしていません．
+</video>
+<!-- <div> -->
+<p>***</p>
+<p><div>口をすぼめる (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput3').click()">撮影する</button>
+<input type="file" capture="environment" accept="video/*" id="cameraInput3" name="cameraInput3" style="display:none">
+<p>撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(4)" />
+
+
+<p>***</p>
+<!-- </div> -->
+
+
+<!-- <div class ="container"> -->
+<video width="480" height="360" controls>
+  <source src="instructions_hospital_5.mp4" type="video/mp4">
+あなたのブラウザはビデオタグをサポートしていません．
+</video>
+<!-- <div> -->
+<p>***</p>
+<p><div>頬を膨らませる (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
+  <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput4').click()">撮影する</button>
+<input type="file" capture="environment" accept="video/*" id="cameraInput4" name="cameraInput4" style="display:none">
+<p>撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(5)" />
+
+
+<p>***</p>
+<!-- </div> -->
+
+
+<h4 id = "upload">動画をアップロードする</h4>
+<h5>動画1</h5>
+	<form class="form-inline" id="form1">
+		<input type="file" id="vid1" name="filename">
+		<input type="submit">
+	</form>
+<h5>動画2</h5>
+	<form class="form-inline" id="form2">
+		<input type="file" id="vid2" name="filename">
+		<input type="submit">
+	</form>
+<h5>動画3</h5>
+	<form class="form-inline" id="form3">
+		<input type="file" id="vid3" name="filename">
+		<input type="submit">
+	</form>
+<h5>動画4</h5>
+	<form class="form-inline" id="form4">
+		<input type="file" id="vid4" name="filename">
+		<input type="submit">
+	</form>
+<h5>動画5</h5>
+	<form class="form-inline" id="form5">
+		<input type="file" id="vid5" name="filename">
+		<input type="submit">
+	</form>
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+	<script>
+    function initImageUpload(num) {
+    	var URL = this.window.URL || this.window.webkitURL;
+        var file = document.getElementById('cameraInput' + (num-1).toString()).files[0];
+        var value = URL.createObjectURL(file);
+        let a = document.createElement("a")
+        a.href = value;
+
+        var ext = file.name.split('.').pop();
+        var filename = file.name.substring(0, file.name.lastIndexOf('.'));
+
+        var newFileName = name + "t" + num.toString() + "." + ext;//provide the new name here
+
+        // a.setAttribute("download", newFileName);
+        // a.click();
+
+        a.target = "_blank";
+        a.download = newFileName;
+        a.click();
+    }
+	</script>
+</html>
