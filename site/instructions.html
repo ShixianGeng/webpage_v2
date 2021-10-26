@@ -66,8 +66,8 @@
 <p><div>できるだけ舌を右に突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
   <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput0').click()">撮影する</button>
 <input type="file" capture="environment" accept="video/*" id="cameraInput0" style="display:none">
-<p>撮影が終了したら，動画をダウンロードしてください．</p>
-<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(1)" />
+<p id = "upload1">撮影が終了したら，動画をアップロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="アップロード" onclick="uploadVideoNow(1)" />
 
 
 <p>***</p>
@@ -84,8 +84,8 @@
 <p><div>できるだけ舌を左に突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
   <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput1').click()">撮影する</button>
 <input type="file" capture="environment" accept="video/*" id="cameraInput1" name="cameraInput1" style="display:none">
-<p>撮影が終了したら，動画をダウンロードしてください．</p>
-<input type="button" value="ダウンロード" style="display:block;width:120px; height:30px;" onclick="initImageUpload(2)" />
+<p id = "upload2">撮影が終了したら，動画をダウンロードしてください．</p>
+<input type="button" value="アップロード" style="display:block;width:120px; height:30px;" onclick="uploadVideoNow(2)" />
 
 
 <p>***</p>
@@ -102,8 +102,8 @@
 <p><div>できるだけ前へ舌を突き出す (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
   <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput2').click()">撮影する</button>
 <input type="file" capture="environment" accept="video/*" id="cameraInput2" name="cameraInput2" style="display:none">
-<p>撮影が終了したら，動画をダウンロードしてください．</p>
-<input type="button" value="ダウンロード" style="display:block;width:120px; height:30px;" onclick="initImageUpload(3)" />
+<p id = "upload3">撮影が終了したら，動画をアップロードしてください．</p>
+<input type="button" value="アップロード" style="display:block;width:120px; height:30px;" onclick="uploadVideoNow(3)" />
 
 
 <p>***</p>
@@ -120,8 +120,8 @@
 <p><div>口をすぼめる (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
   <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput3').click()">撮影する</button>
 <input type="file" capture="environment" accept="video/*" id="cameraInput3" name="cameraInput3" style="display:none">
-<p>撮影が終了したら，動画をダウンロードしてください．</p>
-<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(4)" />
+<p id = "upload4">撮影が終了したら，動画をアップロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="アップロード" onclick="uploadVideoNow(4)" />
 
 
 <p>***</p>
@@ -138,15 +138,15 @@
 <p><div>頬を膨らませる (3秒ほど)</div>　"撮影する"ボタンで何度でも撮り直し可能です</p>
   <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('cameraInput4').click()">撮影する</button>
 <input type="file" capture="environment" accept="video/*" id="cameraInput4" name="cameraInput4" style="display:none">
-<p>撮影が終了したら，動画をダウンロードしてください．</p>
-<input type="button" style="display:block;width:120px; height:30px;" value="ダウンロード" onclick="initImageUpload(5)" />
+<p id = "upload5">撮影が終了したら，動画をアップロードしてください．</p>
+<input type="button" style="display:block;width:120px; height:30px;" value="アップロード" onclick="uploadVideoNow(5)" />
 
 
 <p>***</p>
 <!-- </div> -->
 
 
-<h4 id = "upload">動画をアップロードする</h4>
+<!-- <h4 id = "upload">動画をアップロードする</h4>
 <h5>動画1</h5>
 	<form class="form-inline" id="form1">
 		<input type="file" id="vid1" name="filename">
@@ -176,7 +176,7 @@
 
 
 
-</div>
+</div> -->
 
 
 
@@ -184,24 +184,47 @@
 
 </body>
 	<script>
-    function initImageUpload(num) {
-    	var URL = this.window.URL || this.window.webkitURL;
-        var file = document.getElementById('cameraInput' + (num-1).toString()).files[0];
-        var value = URL.createObjectURL(file);
-        let a = document.createElement("a")
-        a.href = value;
+    //function initImageUpload(num) {
+    	// var URL = this.window.URL || this.window.webkitURL;
+     //    var file = document.getElementById('cameraInput' + (num-1).toString()).files[0];
+     //    var value = URL.createObjectURL(file);
+     //    let a = document.createElement("a")
+     //    a.href = value;
 
-        var ext = file.name.split('.').pop();
-        var filename = file.name.substring(0, file.name.lastIndexOf('.'));
+     //    var ext = file.name.split('.').pop();
+     //    var filename = file.name.substring(0, file.name.lastIndexOf('.'));
 
-        var newFileName = name + "t" + num.toString() + "." + ext;//provide the new name here
+     //    var newFileName = name + "t" + num.toString() + "." + ext;//provide the new name here
 
         // a.setAttribute("download", newFileName);
         // a.click();
 
-        a.target = "_blank";
-        a.download = newFileName;
-        a.click();
-    }
+        // a.target = "_blank";
+        // a.download = newFileName;
+        // a.click();
+    //}
+
+    function uploadVideoNow(index){
+	
+		if(name === ""){
+			alert("あなたの番号を入力してください.");
+		}else{
+			var file = document.getElementById("cameraInput"+(index-1).toString()).files[0];
+			var ref = storageRef.child(name+'/'+index+'-'+Date.now()+'/');
+			var upload = document.getElementById("upload"+index.toString());
+			upload.innerText = "動画" + index.toString()+"アップロード中です...ブラウザを閉じないでください."
+			upload.style.color = 'red';
+			ref.put(file).then((snapshot) =>{
+			//alert("動画" + index.toString()+"アップロード完了.ありがとうございました.");
+			upload.innerText = "動画" + index.toString()+"アップロード完了. ありがとうございました."
+			});
+			event.preventDefault();
+
+		}
+
+
+	
+}
+
 	</script>
 </html>
